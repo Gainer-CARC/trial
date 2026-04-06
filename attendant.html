@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PAR-ADA! - Attendant Page</title>
+</head>
+<body>
+  <h1>PAR-ADA! Attendant View</h1>
+  <p>Update Slots for Irisan Campus:</p>
+  <input type="number" id="slotInput" placeholder="Enter available slots">
+  <button onclick="updateSlots()">Update</button>
+
+  <script>
+    function updateSlots() {
+      const newCount = parseInt(document.getElementById('slotInput').value);
+      if (!isNaN(newCount)) {
+        localStorage.setItem('irisanSlots', newCount);
+      } else {
+        alert("Invalid.");
+      }
+    }
+  </script>
+</body>
+</html>

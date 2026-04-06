@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Update Slots</title>
+       <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    background: #f2f2f2;
+}
+
+.sidebar {
+    width: 220px;
+    background: #2f5f7f;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 15px;
+    background: #2b5873;
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+       width: 100%;
+    max-width: 180px;
+    height: auto;
+}
+
+.menu {
+    padding: 20px;
+}
+
+.menu div {
+    margin: 15px 0;
+}
+
+.menu .active {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: x-large;
+}
+
+.bottom {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.main {
+    flex: 1;
+}
+
+.topbar {
+    background: #e6e6e6;
+    padding: 15px 20px;
+    font-size: 24px;
+}
+
+.topbar span {
+    color: green;
+    font-weight: bold;
+}
+
+.controls {
+    background: #4b4139;
+    padding: 15px 20px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #6da7d8;
+    color: white;
+}
+
+.info {
+    background: transparent;
+    border: 2px solid #ddd;
+    color: white;
+}
+
+.content {
+    margin-left: 450px;
+    margin-top: 100px;
+    padding: 40px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.counter {
+    font-size: 120px;
+    margin: 20px 0;
+}
+
+.occupied {
+    color: green;
+}
+
+
+.controls-btn {
+    margin-top: 20px;
+}
+
+.circle-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    font-size: 40px;
+    margin: 20px;
+    cursor: pointer;
+    background: #123f7a;
+    color: white;
+}
+
+.remaining-box {
+    position: absolute;
+    right: 40px;
+    margin-top: -300px;
+    background: #999;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 120px;
+}
+
+.remaining-box h3 {
+    margin: 0;
+    font-weight: normal;
+}
+
+.remaining-box p {
+    font-size: 40px;
+    margin: 10px 0 0 0;
+}
+       </style>
+    </head>
+
+    <body>
+
+        <div class="sidebar">
+            <a href="home.html"> <div class="logo">
+                <img src="logo1.png" alt="PAR-ADA Logo">
+            </div></a>
+
+            <div class="menu">
+                <div class="active">Dashboard</div>
+            </div>
+
+            <div class="bottom">⚙ Settings</div>
+        </div>
+
+        <div class="main">
+            <div class="topbar">
+                <span>Welcome back,</span> Charles!
+            </div>
+
+            <div class="controls">
+                <button class="btn info" onclick="GoToMngInfo()">MANAGE INFO</button>
+                <button class="btn btn-primary">UPDATE SLOTS</button>
+            </div>
+
+            <div class="content">
+                <div class="title">Occupied Slots</div>
+                <div class="counter">
+                    <span id="occupied" class="occupied">0</span>/<span>30</span>
+                </div>
+
+                <div class="controls-btn">
+                    <button class="circle-btn" onclick="decrease()">−</button>
+                    <button class="circle-btn" onclick="increase()">+</button>
+                </div>
+            </div>
+
+            <div class="remaining-box">
+                <h3>Remaining</h3>
+                <p id="remaining">30</p>
+            </div>
+        </div>
+        <script>
+let occupied = 0;
+const maxSlots = 30;
+
+function updateDisplay() {
+    let remaining = maxSlots - occupied;
+
+    document.getElementById("occupied").innerText = occupied;
+    document.getElementById("remaining").innerText = remaining;
+
+    // ✅ SAVE TO LOCAL STORAGE
+    localStorage.setItem("pshs_slots", remaining);
+}
+
+function increase() {
+    if (occupied < maxSlots) {
+        occupied++;
+        updateDisplay();
+        if (occupied === maxSlots) {
+            alert("Parking is full");
+        }
+    }
+}
+
+function decrease() {
+    if (occupied > 0) {
+        occupied--;
+        updateDisplay();
+    }
+}
+
+function GoToMngInfo() {
+    window.location.href = "page 7.html";
+}
+
+// IMPORTANT: initialize on load
+updateDisplay();</script>
+    </body>
+</html>

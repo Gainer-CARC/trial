@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAR-ADA | Ang Iyong Barkada sa Pagparada</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 26px;
+            font-weight: 700;
+            color: #5ca6e4;
+            letter-spacing: 2px;
+        }
+
+        /* Simple representation of the truck/P logo */
+        .logo-box {
+            border: 3px solid #5ca6e4;
+            padding: 2px 8px;
+            margin-right: 5px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #000;
+            border-bottom: 2px solid #333;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: calc(100vh - 75px);
+            /* Replace 'background.jpg' with your actual image path */
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Fallback color if image is missing */
+        .hero { background-color: #2c3e50; }
+
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 55px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            margin-bottom: 60px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            text-transform: uppercase;
+        }
+
+        /* SEARCH SECTION */
+        .search-container h3 {
+            margin-bottom: 20px;
+            font-weight: 400;
+            font-size: 28px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .search-bar {
+            display: flex;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            max-width: 550px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            outline: none;
+            color: #333;
+        }
+
+        .search-btn {
+            background-color: #ffcc33; /* The Gold/Yellow from the design */
+            border: none;
+            width: 60px;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #e6b82e;
+        }
+
+        .search-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        /* REGISTER BUTTON */
+        .register-btn {
+            background-color: #74b1e9; /* Light Blue */
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .register-btn:hover {
+            background-color: #5ca6e4;
+            transform: translateY(-2px);
+        }
+
+        /* RESPONSIVE FIXES */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 35px; }
+            header { padding: 15px 20px; }
+            nav { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="logo-box">P</div>AR-ADA
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">SIGN-IN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WELCOME SA PAR-ADA!</h1>
+            <p class="subtitle">ANG IYONG BARKADA SA PAGPARADA

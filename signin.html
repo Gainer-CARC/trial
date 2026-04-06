@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PAR-ADA Sign In</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px;
+    background: #e6e6e6;
+        margin-bottom: -20px;
+}
+
+/* LOGO */
+.logo img {
+    height: 100px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    font-weight: bold;
+}
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('background.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 40px;
+}
+
+/* OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 60, 120, 0.6);
+    top: 0;
+    left: 0;
+}
+
+/* CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    top:-150px;
+}
+
+/* TITLE */
+.hero h1 {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.form-group label {
+    width: 150px;
+    font-size: 22px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+/* INPUT + BUTTON WRAPPER */
+.input-wrapper {
+    display: flex;
+}
+
+.input-wrapper input {
+    width: 350px;
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* SIDE BUTTON (arrow placeholder) */
+.input-wrapper button {
+    width: 60px;
+    border: none;
+    background: #cfcfcf;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* REGISTER TEXT */
+.register-text {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+/* CTA BUTTON */
+.cta-btn {
+    margin-top: 10px;
+    padding: 12px 25px;
+    background: #6aa0d8;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.cta-btn:hover {
+    background: #4f84b8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="home.html">
+        <div class="logo">
+            <img src="logo.png" alt="PAR-ADA Logo">
+        </div>
+    </a>
+
+    <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a  style="font-weight: bold;"href="signin.html">SIGN-IN</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+
+        <h1>SIGN-IN</h1>
+        <p>Ito ay para sa mga rehistradong paradahan lamang.</p>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+            <label>Email:</label>
+            <div class="input-wrapper">
+                <input type="text" placeholder="email@gmail.com">
+                <button>←</button>
+            </div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group">
+            <label>Password:</label>
+            <div class="input-wrapper">
+                <input type="password" placeholder="********">
+                <button>←</button>
+            </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="register-text">
+            Nais magrehistro?
+        </div>
+
+        <button class="cta-btn" onclick="register()">Irehistro ang Paradahan</button>
+
+    </div>
+</div>
+<script>
+function register() {
+    window.location.href = "register.html";
+}
+</script>
+</body>
+</html>

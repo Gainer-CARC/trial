@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage Info</title>
+
+      <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    background: #f2f2f2;
+}
+
+.sidebar {
+    width: 220px;
+    background: #2f5f7f;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 15px;
+    background: #2b5873;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+}
+
+.menu {
+    padding: 20px;
+}
+
+.menu div {
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.menu .active {
+    background: #1f3f55;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bottom {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.main {
+    flex: 1;
+}
+
+.topbar {
+    background: #e6e6e6;
+    padding: 15px 20px;
+    font-size: 24px;
+}
+
+.topbar span {
+    color: green;
+    font-weight: bold;
+}
+
+.controls {
+    background: #4b4139;
+    padding: 15px 20px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #6da7d8;
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ddd;
+    color: white;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 40px;
+}
+
+.info {
+    font-size: 18px;
+    line-height: 1.8;
+    flex: 1;
+}
+
+.label {
+    font-weight: bold;
+    width: 260px;
+    display: inline-block;
+}
+
+.form {
+    width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+      </style>
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <a href="home.html"> <div class="logo">
+                <img src="logo1.png" alt="PAR-ADA Logo">
+            </div></a>
+
+            <div class="menu">
+                <div class="active">Dashboard</div>
+            </div>
+
+            <div class="bottom">⚙ Settings</div>
+        </div>
+
+        <div class="main">
+            <div class="topbar">
+                <span>Welcome back,</span> Charles!
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary">MANAGE INFO</button>
+                <button class="btn btn-outline" onclick="GoToUpdteSlts()">UPDATE SLOTS</button>
+            </div>
+
+            <div class="content">
+                <div class="info">
+                    <div><span class="label">Institution / Building Name:</span> <span id="inst">PHILIPPINE SCIENCE HIGH SCHOOL - CARC</span></div>
+                    <div><span class="label">Preferred Name:</span> <span id="pref">PSHS-CARC</span></div>
+                    <div><span class="label">Location:</span> <span id="loc">Lime Kiln, Irisan</span></div>
+                    <div><span class="label">Parking Fee:</span> <span id="fee">₱0.00</span></div>
+                    <div><span class="label">Opening Hours:</span> <span id="hours">7:00 AM - 6:00 PM</span></div>
+                    <div><span class="label">Number of Slots:</span> <span id="slots">30</span></div>
+                    
+
+                    <br><br>
+
+                    <div><span class="label">Parking Attendant’s Name:</span> <span id="att">Roberto S. Ceasar</span></div>
+                    <div><span class="label">Position:</span> <span id="pos">Guard</span></div>
+                </div>
+
+                <div class="form">
+                    <input type="text" id="inputInst" placeholder="Institution / Building Name"><br><br>
+                    <input type="text" id="inputPref" placeholder="Preferred Name"><br><br>
+                    <input type="text" id="inputLoc" placeholder="Location"><br><br>
+                    <input type="text" id="inputFee" placeholder="Parking Fee"><br><br>
+                    <input type="text" id="inputHours" placeholder="Opening Hours"><br><br>
+                    <input type="text" id="inputAtt" placeholder="Attendant Name"><br><br>
+                    <input type="text" id="inputPos" placeholder="Position"><br><br>
+
+                    <button class="btn btn-primary" onclick="saveInfo()">SAVE</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function saveInfo() {
+    let inst = document.getElementById("inputInst").value;
+    let pref = document.getElementById("inputPref").value;
+    let loc = document.getElementById("inputLoc").value;
+    let fee = document.getElementById("inputFee").value;
+    let hours = document.getElementById("inputHours").value;
+    let att = document.getElementById("inputAtt").value;
+    let pos = document.getElementById("inputPos").value;
+
+    if (inst) document.getElementById("inst").innerText = inst;
+    if (pref) document.getElementById("pref").innerText = pref;
+    if (loc) document.getElementById("loc").innerText = loc;
+    if (fee) document.getElementById("fee").innerText = fee;
+    if (hours) document.getElementById("hours").innerText = hours;
+    if (att) document.getElementById("att").innerText = att;
+    if (pos) document.getElementById("pos").innerText = pos;
+
+    localStorage.setItem("inst", inst);
+    localStorage.setItem("pref", pref);
+    localStorage.setItem("loc", loc);
+    localStorage.setItem("fee", fee);
+    localStorage.setItem("hours", hours);
+    localStorage.setItem("att", att);
+    localStorage.setItem("pos", pos);
+
+    alert("Information saved!");
+}
+
+window.onload = function() {
+    if (localStorage.getItem("inst")) {
+        document.getElementById("inst").innerText = localStorage.getItem("inst");
+        document.getElementById("pref").innerText = localStorage.getItem("pref");
+        document.getElementById("loc").innerText = localStorage.getItem("loc");
+        document.getElementById("fee").innerText = localStorage.getItem("fee");
+        document.getElementById("hours").innerText = localStorage.getItem("hours");
+        document.getElementById("att").innerText = localStorage.getItem("att");
+        document.getElementById("pos").innerText = localStorage.getItem("pos");
+    }
+}
+
+function GoToUpdteSlts(){
+    window.location.href="page 8.html"
+}
+        </script>
+    </body>
+</html>

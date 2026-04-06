@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PAR-ADA Home</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px;
+    background: #e6e6e6;
+    margin-bottom: -20px;
+}
+ 
+/* LOGO */
+.logo img {
+    height: 100px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+     font-size: 20px;
+}
+
+.nav-links a:hover {
+    font-weight: bold;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+
+    background: url('background.png') no-repeat center center/cover;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* DARK OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 60, 120, 0.5);
+    top: 0;
+    left: 0;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    color: white;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 100px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 35px;
+    margin-bottom: 30px;
+   
+}
+
+/* SEARCH */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-box input {
+    width: 400px;
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box button {
+    background: #f4b400;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* CTA BUTTON */
+.cta-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #6aa0d8;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-btn:hover {
+    background: #4f84b8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    
+    <!-- 🔽 LOGO IMAGE -->
+  <a href="home.html"> <div class="logo">
+        <img src="logo.png" alt="PAR-ADA Logo">
+    </div></a>
+
+   <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a  style="font-weight: bold;" href="howtouse.html">HOW TO USE</a>
+        <a href="signin.html">SIGN-IN</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="hero-content">
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PAR-ADA Search</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR (FROM YOUR ORIGINAL CODE) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px;
+    background: #e6e6e6;
+}
+
+/* LOGO */
+.logo img {
+    height: 100px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background: url('background.png') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+/* OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 60, 120, 0.5);
+    top: 0;
+    left: 0;
+}
+
+/* CONTENT */
+.content {
+    position: relative;
+    z-index: 1;
+    width: 70%;
+}
+
+/* SEARCH BOX (TOP INSIDE HERO) */
+.search-box {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+}
+
+.search-box button {
+    background: #f4b400;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+/* GLASS CONTAINER */
+.glass {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* CARD */
+.card {
+    width:140%;
+    display: flex;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 30px;
+}
+
+/* LEFT */
+.card-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+}
+
+/* COLORS */
+.green {
+    background: #a6df2f;
+}
+
+.yellow {
+    background: #f2d35e;
+}
+
+/* ICON */
+.icon {
+    font-size: 60px;
+}
+
+/* TEXT */
+.card-text h2 {
+    font-size: 30px;
+}
+
+.card-text p {
+    font-size: 18px;
+}
+
+/* FEE BAR */
+.fee {
+    margin-top: 10px;
+    background: #eee;
+    padding: 6px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+}
+
+/* RIGHT SIDE */
+.card-right {
+    width: 200px;
+    background: #6aa0d8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* RIGHT TEXT */
+.card-right p {
+    font-size: 20px;
+}
+
+.card-right h1 {
+    font-size: 50px;
+}
+</style>
+</head>
+
+<body>
+<div class = "searchPage">
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="home.html">
+        <div class="logo">
+            <img src="logo.png" alt="PAR-ADA Logo">
+        </div>
+    </a>
+    <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+
+        <a href="signin.html">SIGN-IN</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="content">
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input type="text" value="Irisan">
+            <button>🔍</button>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="glass">
+
+            <!-- CARD 1 -->
+             <button onclick="irisan()" style= "all: unset; cursor: pointer;">
+      <div class="card">
+                <div class="card-left green">
+                    <div class="icon">🏢</div>
+
+                    <div class="card-text">
+                        <h2>PSHS-CARCBC</h2>
+                        <p>Lime Kiln, Irisan Rd.</p>
+                        <div class="fee">Parking Fee: 0</div>
+                    </div>
+                </div>
+            
+                <div class="card-right">
+                    <p>Bakante:</p>
+                    <h1 id="pshsBakante">0</h1>
+                </div>
+            </div>
+             </button>
+            <!-- CARD 2 -->
+
+           <button onclick="any()"  style= "all: unset; cursor: pointer;"><div class="card">
+                <div class="card-left yellow">
+                    <div class="icon">🏢</div>
+
+                    <div class="card-text">
+                        <h2>PLACE #2</h2>
+                        <p>Lime Kiln, Irisan Rd.</p>
+                        <div class="fee">Parking Fee: 0</div>
+                    </div>
+                </div>
+
+                <div class="card-right">
+                    <p>Bakante:</p>
+                    <h1>2</h1>
+                </div>
+            </div>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+function irisan(){
+        window.location.href="page 7.html"
+}
+// Get saved value
+let remaining = localStorage.getItem("pshs_slots");
+
+// fallback if empty
+if (remaining === null) {
+    remaining = 0;
+}
+
+// Display it
+document.getElementById("pshsBakante").innerText = remaining;
+</script>
+</body>
+</html>

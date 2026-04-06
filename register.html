@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PAR-ADA Register</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px;
+    background: #e6e6e6;
+}
+
+/* LOGO */
+.logo img {
+    height: 100px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background: url('background.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 60, 120, 0.6);
+    top: 0;
+    left: 0;
+}
+
+/* CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    width: 90%;
+    top:-150px;
+}
+
+
+/* TITLE */
+.hero h1 {
+    text-align: center;
+    font-size: 70px;
+}
+
+.hero p.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+/* GRID LAYOUT */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* LEFT SIDE */
+.left-form {
+    width: 50%;
+}
+
+/* RIGHT SIDE */
+.right-form {
+    width: 40%;
+}
+
+/* FORM GROUP */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    width: 150px;
+    font-size: 20px;
+}
+
+/* INPUT STYLE */
+.input-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+
+/* SIDE BUTTON */
+.input-wrapper button {
+    width: 50px;
+    border: none;
+    background: #cfcfcf;
+    cursor: pointer;
+}
+
+/* NAME STACK */
+.name-stack input {
+    margin-bottom: 10px;
+}
+
+/* AGE */
+.small-input {
+    width: 80px !important;
+}
+
+/* DROPDOWN LOOK */
+.dropdown {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+/* FILE INPUT */
+.file-input input {
+    background: white;
+}
+
+/* DISCLAIMER BOX */
+.disclaimer {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.disclaimer h3 {
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.cta-btn {
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    background: #6aa0d8;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    background: #4f84b8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="home.html">
+        <div class="logo">
+            <img src="logo.png" alt="PAR-ADA Logo">
+        </div>
+    </a>
+
+   <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a  style="font-weight: bold;" href="signin.html">SIGN-IN</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-content">
+
+    <h1>IREHISTRO ANG PARADAHAN</h1>
+    <p class="subtitle">Irehistro ang inyong paradahan para maipakita ang available na pwesto sa mga drayber.</p>
+
+    <div class="form-container">
+
+        <!-- LEFT -->
+        <div class="left-form">
+
+            <!-- NAME -->
+            <div class="form-group">
+                <label>Pangalan:</label>
+                <div class="input-wrapper name-stack">
+                    <div style="width:100%;">
+                        <input type="text" placeholder="LAST NAME">
+                        <input type="text" placeholder="FIRST NAME">
+                    </div>
+                    <button>←</button>
+                </div>
+            </div>
+
+            <!-- ROLE -->
+            <div class="form-group">
+                <label>Katungkulan:</label>
+                <div class="input-wrapper">
+                    <select>
+                        <option>Parking Attendant / Guard</option>
+                        <option>May-ari ng establishment</option>
+                        <option>Manager o iba pa</option>
+                    </select>
+                    <button>✔</button>
+                </div>
+            </div>
+
+            <!-- AGE -->
+            <div class="form-group">
+                <label>Edad:</label>
+                <div class="input-wrapper">
+                    <input class="small-input" type="number" placeholder="27">
+                </div>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+                <label>Email:</label>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="email@gmail.com">
+                    <button>←</button>
+                </div>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+                <label>Password:</label>
+                <div class="input-wrapper">
+                    <input type="password" placeholder="********">
+                    <button>←</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right-form">
+
+            <div class="form-group">
+                <label style="width:100%;">Karagdagang Dokumento:</label>
+            </div>
+
+            <div class="form-group file-input">
+                <div class="input-wrapper">
+                    <input type="file">
+                    <button>↑</button>
+                </div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="disclaimer">
+                <h3>DISCLAIMER:</h3>
+                <p>
+                    Sa pagrehistro, sumasang-ayon ang gumagamit na ang impormasyong ibibigay,
+                    kabilang ang lokasyon ng paradahan, ay makikita ng publiko, at inaasahang
+                    ito ay tama, kumpleto, at tapat upang mapanatili ang pagiging maaasahan ng sistema.
+                </p>
+
+                <button class="cta-btn" onclick="register()">Irehistro</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+<script>
+function register() {
+    window.location.href = "search.html";
+}
+</script>
+</body>
+</html>

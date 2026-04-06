@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>PAR-ADA</title>
+
+<style>
+.page { display:none; }
+.active { display:block; }
+</style>
+
+<!-- ================= IMAGE 1 STYLE ================= -->
+<style>
+/* (UNCHANGED) */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+.navbar { display:flex; justify-content:space-between; align-items:center; padding:40px 40px; background:#e6e6e6; }
+.logo img { height:100px; }
+.nav-links { display:flex; gap:30px; }
+.nav-links a { text-decoration:none; color:black; font-weight:500; font-size:20px; }
+.hero { min-height:100vh; background:url('background.png') no-repeat center/cover; display:flex; justify-content:center; padding-top:40px; }
+.content { width:70%; }
+.search-box { display:flex; margin-bottom:20px; }
+.search-box input { flex:1; padding:15px; border:none; font-size:18px; }
+.search-box button { background:#f4b400; border:none; padding:15px 20px; }
+.card { width:140%; display:flex; margin-bottom:25px; border-radius:20px; overflow:hidden; padding:30px; }
+.card-left { flex:1; display:flex; align-items:center; gap:20px; padding:25px; }
+.green { background:#a6df2f; }
+.yellow { background:#f2d35e; }
+.icon { font-size:60px; }
+.card-text h2 { font-size:30px; }
+.card-text p { font-size:18px; }
+.fee { margin-top:10px; background:#eee; padding:6px; border-radius:20px; width:350px; text-align:center; }
+.card-right { width:200px; background:#6aa0d8; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.card-right p { font-size:20px; }
+.card-right h1 { font-size:50px; }
+</style>
+
+<!-- ================= IMAGE 2 + 3 STYLE ================= -->
+<style>
+/* (UNCHANGED) */
+body { margin:0; font-family:Arial; }
+.sidebar { width:220px; background:#2f5f7f; color:white; height:100vh; display:flex; flex-direction:column; }
+.logo img { width:100%; max-width:180px; }
+.main { flex:1; }
+.topbar { background:#e6e6e6; padding:15px 20px; font-size:24px; }
+.controls { background:#4b4139; padding:15px 20px; }
+.btn { padding:10px 25px; border-radius:25px; margin-right:10px; cursor:pointer; font-weight:bold; }
+.btn-primary { background:#6da7d8; color:white; }
+.circle-btn { width:80px; height:80px; border-radius:50%; font-size:40px; background:#123f7a; color:white; }
+.remaining-box { position:absolute; right:40px; top:200px; background:#999; padding:20px; border-radius:20px; }
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= IMAGE 1 ================= -->
+<div id="page1" class="page active">
+
+<div class="navbar">
+<div class="logo"><img src="logo.png"></div>
+<div class="nav-links">
+<a>HOME</a><a>ABOUT</a><a>SIGN-IN</a>
+</div>
+</div>
+
+<div class="hero">
+<div class="content">
+
+<div class="search-box">
+<input value="Irisan">
+<button>🔍</button>
+</div>
+
+<button onclick="irisan()" style="all: unset; cursor: pointer;">
+<div class="card">
+<div class="card-left green">
+<div class="icon">🏢</div>
+<div class="card-text">
+<h2>PSHS-CARCBC</h2>
+<p>Lime Kiln, Irisan Rd.</p>
+<div class="fee">Parking Fee: 0</div>
+</div>
+</div>
+<div class="card-right"><p>Bakante:</p><h1>10</h1></div>
+</div>
+</button>
+
+<button onclick="any()" style="all: unset; cursor: pointer;">
+<div class="card">
+<div class="card-left yellow">
+<div class="icon">🏢</div>
+<div class="card-text">
+<h2>PLACE #2</h2>
+<p>Lime Kiln, Irisan Rd.</p>
+<div class="fee">Parking Fee: 0</div>
+</div>
+</div>
+<div class="card-right"><p>Bakante:</p><h1>2</h1></div>
+</div>
+</button>
+
+</div>
+</div>
+</div>
+
+<!-- ================= IMAGE 2 ================= -->
+<div id="page2" class="page">
+
+<div style="display:flex;">
+<div class="sidebar">
+<div class="logo"><img src="logo1.png"></div>
+</div>
+
+<div class="main">
+<div class="topbar"><span style="color:green;">Welcome back,</span> Charles!</div>
+
+<div class="controls">
+<button class="btn btn-primary">MANAGE INFO</button>
+<button class="btn" onclick="GoToUpdteSlts()">UPDATE SLOTS</button>
+</div>
+
+<div style="padding:20px;">
+<p><b>Institution:</b> PSHS-CARC</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- ================= IMAGE 3 ================= -->
+<div id="page3" class="page">
+
+<div style="display:flex;">
+<div class="sidebar">
+<div class="logo"><img src="logo1.png"></div>
+</div>
+
+<div class="main">
+<div class="topbar"><span style="color:green;">Welcome back,</span> Charles!</div>
+
+<div class="controls">
+<button class="btn" onclick="GoToMngInfo()">MANAGE INFO</button>
+<button class="btn btn-primary">UPDATE SLOTS</button>
+</div>
+
+<div style="padding:40px;">
+<h2>Occupied Slots</h2>
+<h1><span id="occupied">0</span>/30</h1>
+
+<button class="circle-btn" onclick="decrease()">−</button>
+<button class="circle-btn" onclick="increase()">+</button>
+</div>
+
+<div class="remaining-box">
+Remaining <span id="remaining">30</span>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+/* ONLY ADDED NAVIGATION */
+function showPage(id){
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+/* REPLACED REDIRECTS */
+function irisan(){ showPage('page2'); }
+function any(){ showPage('page2'); }
+function GoToUpdteSlts(){ showPage('page3'); }
+function GoToMngInfo(){ showPage('page2'); }
+
+/* ORIGINAL SLOT LOGIC */
+let occupied = 0;
+const maxSlots = 30;
+
+function updateDisplay(){
+    document.getElementById("occupied").innerText = occupied;
+    document.getElementById("remaining").innerText = maxSlots - occupied;
+}
+
+function increase(){
+    if(occupied < maxSlots){ occupied++; updateDisplay(); }
+}
+
+function decrease(){
+    if(occupied > 0){ occupied--; updateDisplay(); }
+}
+</script>
+
+</body>
+</html>

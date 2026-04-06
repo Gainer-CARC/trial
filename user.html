@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PAR-ADA! - User Page</title>
+</head>
+<body>
+  <h1>PAR-ADA! User View</h1>
+  <p>Parking Area: Irisan Campus</p>
+  <p>Available Slots: <span id="slotDisplay">0...</span></p> 
+
+  <script>
+    // Function to update slot display
+    function updateSlotsDisplay() {
+      const slots = localStorage.getItem('slots') || 0; //if user not input any put 0
+      document.getElementById('slotDisplay').innerText = slots;
+    }
+
+    // Initial display
+    updateSlotsDisplay();
+
+    // Listen for changes from other tabs
+    window.addEventListener('storage', function(event) {
+      if (event.key === 'slots') {
+        updateSlotsDisplay();
+      }
+    });
+  </script>
+</body>
+</html>
